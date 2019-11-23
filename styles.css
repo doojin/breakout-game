@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#gameCanvas {
+    background: #eee;
+    display: block;
+    margin: 5% auto;
+}
