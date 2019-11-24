@@ -80,4 +80,4 @@ function drawBallLine(length) {
     }
 }
 
-setInterval(draw, 6);
+setInterval(draw, 10);
