@@ -7,6 +7,8 @@ const ball = {
     x: canvas.width / 2,
     y: canvas.height - 30,
     radius: 10,
+    dx: 1,
+    dy: -1,
 
     get leftBorder() {
         return this.x - this.radius;
@@ -25,25 +27,22 @@ const ball = {
     }
 };
 
-let dx = 1;
-let dy = -1;
-
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (ball.rightBorder + dx > canvas.width || ball.leftBorder + dx < 0) {
-        dx = -dx;
+    if (ball.rightBorder + ball.dx > canvas.width || ball.leftBorder + ball.dx < 0) {
+        ball.dx = -ball.dx;
     }
 
-    if (ball.topBorder + dy < 0 || ball.bottomBorder + dy > canvas.height) {
-        dy = -dy;
+    if (ball.topBorder + ball.dy < 0 || ball.bottomBorder + ball.dy > canvas.height) {
+        ball.dy = -ball.dy;
     }
     
     drawBall();
     drawBallLine(250);
 
-    ball.x += dx;
-    ball.y += dy;
+    ball.x += ball.dx;
+    ball.y += ball.dy;
 }
 
 function drawBall() {
